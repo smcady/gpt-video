@@ -7,11 +7,11 @@ import useMediaRecorder from "@wmik/use-media-recorder";
 import mergeImages from "merge-images";
 import { useLocalStorage } from "../lib/use-local-storage";
 
-const INTERVAL = 250;
+const INTERVAL = 1000;
 const IMAGE_WIDTH = 512;
-const IMAGE_QUALITY = 0.6;
-const COLUMNS = 4;
-const MAX_SCREENSHOTS = 60;
+const IMAGE_QUALITY = 0.8;
+const COLUMNS = 3;
+const MAX_SCREENSHOTS = 9;
 const SILENCE_DURATION = 2500;
 const SILENT_THRESHOLD = -30;
 
@@ -133,7 +133,8 @@ export default function Chat() {
   });
 
   let { liveStream, ...video } = useMediaRecorder({
-    recordScreen: false,
+    /* enable screen recoring */
+    recordScreen: true, 
     blobOptions: { type: "video/webm" },
     mediaStreamConstraints: { audio: false, video: true },
   });
